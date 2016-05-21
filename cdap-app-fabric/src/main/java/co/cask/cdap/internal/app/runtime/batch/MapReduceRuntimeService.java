@@ -357,9 +357,8 @@ final class MapReduceRuntimeService extends AbstractExecutionThreadService {
       try {
         if (mapReduce instanceof ProgramLifecycle) {
           destroy(success, failureInfo);
-        } else {
-          onFinish(success);
         }
+        onFinish(success);
       } finally {
         context.close();
         cleanupTask.run();
@@ -482,10 +481,8 @@ final class MapReduceRuntimeService extends AbstractExecutionThreadService {
           context.setState(new ProgramState(ProgramStatus.INITIALIZING, null));
           if (mapReduce instanceof ProgramLifecycle) {
             ((ProgramLifecycle) mapReduce).initialize(context);
-          } else {
-            mapReduce.beforeSubmit(context);
           }
-
+          mapReduce.beforeSubmit(context);
           // once the initialize method is executed, set the status of the MapReduce to RUNNING
           context.setState(new ProgramState(ProgramStatus.RUNNING, null));
 
