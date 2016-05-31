@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Runs Mapreduce programm in distributed environment
+ * Runs Mapreduce program in distributed environment
  */
 public final class DistributedMapReduceProgramRunner extends AbstractDistributedProgramRunner {
 

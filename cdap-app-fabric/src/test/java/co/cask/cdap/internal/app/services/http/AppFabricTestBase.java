@@ -673,7 +673,7 @@ public abstract class AppFabricTestBase {
   protected int suspendSchedule(String namespace, String appName, String schedule) throws Exception {
     String scheduleSuspend = String.format("apps/%s/schedules/%s/suspend", appName, schedule);
     String versionedScheduledSuspend = getVersionedAPIPath(scheduleSuspend, Constants.Gateway.API_VERSION_3_TOKEN,
-      namespace);
+                                                           namespace);
     HttpResponse response = doPost(versionedScheduledSuspend);
     return response.getStatusLine().getStatusCode();
   }
@@ -691,7 +691,8 @@ public abstract class AppFabricTestBase {
     String versionedUrl = getVersionedAPIPath(schedulesUrl, Constants.Gateway.API_VERSION_3_TOKEN, namespace);
     HttpResponse response = doGet(versionedUrl);
     String json = EntityUtils.toString(response.getEntity());
-    return GSON.fromJson(json, new TypeToken<List<ScheduleSpecification>>() { }.getType());
+    return GSON.fromJson(json, new TypeToken<List<ScheduleSpecification>>() {
+    }.getType());
   }
 
   protected void verifyNoRunWithStatus(final Id.Program program, final String status) throws Exception {
@@ -758,6 +759,9 @@ public abstract class AppFabricTestBase {
     return doDelete(String.format("%s/unrecoverable/namespaces/%s", Constants.Gateway.API_VERSION_3, name));
   }
 
+  protected HttpResponse createNamespace(NamespaceMeta metadata, String id) throws Exception {
+    return createNamespace(GSON.toJson(metadata), id);
+  }
   protected HttpResponse createNamespace(String metadata, String id) throws Exception {
     return doPut(String.format("%s/namespaces/%s", Constants.Gateway.API_VERSION_3, id), metadata);
   }
