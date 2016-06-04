@@ -32,7 +32,6 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +49,6 @@ import java.util.Set;
  * an app is deleted. As a consequence, it would not invalidate its cache for the usage registration. That in turn
  * would prevent the usage from being re-registered after the app is redeployed.
  */
-@Singleton
 public class DefaultUsageRegistry implements UsageRegistry {
 
   private static final Logger LOG = LoggerFactory.getLogger(DefaultUsageRegistry.class);
