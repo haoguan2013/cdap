@@ -23,6 +23,33 @@ Cask Data Application Platform Release Notes
    :backlinks: none
    :depth: 2
 
+`Release 3.4.2 <http://docs.cask.co/cdap/3.4.2/index.html>`__
+=============================================================
+
+Bug Fixes
+---------
+- `CDAP-5998 <https://issues.cask.co/browse/CDAP-5998>`__ - Fixed integrating navigator app in Tracker UI.
+  The POST body request that was sent while deploying navigator app was using an older deprecated property
+  (UI was using 'metadataKafkaConfig' instead of 'auditKafkaConfig').
+  This should enable using navigator app in Tracker UI.
+
+- `CDAP-6096 <https://issues.cask.co/browse/CDAP-6096>`__ - Fixed cloning a pipeline in Hydrator.
+  This happened when the users navigate from CDAP to Hydrator to cloning a pipeline in Hydrator UI.
+
+- `CDAP-6109 <https://issues.cask.co/browse/CDAP-6109>`__ - Fixed a NullPointerException issue in
+  Spark when saving RDD to PartitionedFileSet dataset.
+
+- `CDAP-6041 <https://issues.cask.co/browse/CDAP-6041>`__ - Fixed the Hydrator Hive batch source so that
+  it no longer throws a ClassNotFoundException.
+
+- `CDAP-6044 <https://issues.cask.co/browse/CDAP-6044>`__ - Fixed Hydrator CSVParser so that a nullable
+  field is only set to null if the parsed value is an empty string, and the field is not a string
+  or nullable string type.
+
+- `CDAP-6097 <https://issues.cask.co/browse/CDAP-6097>`__ - Fixed a bug due to which the UPPER/lower
+  transform was not applied to all columns correctly for DBSink.
+
+
 `Release 3.4.1 <http://docs.cask.co/cdap/3.4.1/index.html>`__
 =============================================================
 
