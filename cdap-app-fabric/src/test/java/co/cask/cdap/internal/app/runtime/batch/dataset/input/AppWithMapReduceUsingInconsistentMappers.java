@@ -70,7 +70,7 @@ public class AppWithMapReduceUsingInconsistentMappers extends AbstractApplicatio
       MapReduceContext context = getContext();
       context.addInput(Input.ofDataset("input1"), OriginalMapper.class);
       context.addInput(Input.ofDataset("input2"), ConsistentMapper.class);
-      super.initialize(context);
+      super.initialize();
     }
   }
 
@@ -87,7 +87,7 @@ public class AppWithMapReduceUsingInconsistentMappers extends AbstractApplicatio
       Job job = context.getHadoopJob();
       // none of the inputs default to the job-defined mapper, so an inconsistent mapper defined here gives no issue
       job.setMapperClass(InconsistentMapper.class);
-      super.initialize(context);
+      super.initialize();
     }
   }
 
@@ -104,7 +104,7 @@ public class AppWithMapReduceUsingInconsistentMappers extends AbstractApplicatio
 
       Job job = context.getHadoopJob();
       job.setMapperClass(InconsistentMapper.class);
-      super.initialize(context);
+      super.initialize();
     }
   }
 
