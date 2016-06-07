@@ -33,8 +33,8 @@ Bug Fixes
   (UI was using 'metadataKafkaConfig' instead of 'auditKafkaConfig').
   This should enable using navigator app in Tracker UI.
 
-- `CDAP-6096 <https://issues.cask.co/browse/CDAP-6096>`__ - Fixed cloning a pipeline in Hydrator.
-  This happened when the users navigate from CDAP to Hydrator to cloning a pipeline in Hydrator UI.
+- `CDAP-6096 <https://issues.cask.co/browse/CDAP-6096>`__ - Fixed an issue in cloning a Hydrator pipeline
+  which used to happen when an user navigate from CDAP to Hydrator to clone a pipeline in Hydrator UI.
 
 - `CDAP-6109 <https://issues.cask.co/browse/CDAP-6109>`__ - Fixed a NullPointerException issue in
   Spark when saving RDD to PartitionedFileSet dataset.
@@ -45,9 +45,6 @@ Bug Fixes
 - `CDAP-6044 <https://issues.cask.co/browse/CDAP-6044>`__ - Fixed Hydrator CSVParser so that a nullable
   field is only set to null if the parsed value is an empty string, and the field is not a string
   or nullable string type.
-
-- `CDAP-6097 <https://issues.cask.co/browse/CDAP-6097>`__ - Fixed a bug due to which the UPPER/lower
-  transform was not applied to all columns correctly for DBSink.
 
 
 `Release 3.4.1 <http://docs.cask.co/cdap/3.4.1/index.html>`__
